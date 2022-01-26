@@ -8,12 +8,13 @@ from sklearn.preprocessing import PolynomialFeatures
 outputX = []
 outputY = []
 np.random.seed(0)
-x = 2 - 3 * np.random.normal(0, 1, 20)
-y = x - 2 * (x ** 2) + 0.5 * (x ** 3) + np.random.normal(-3, 3, 20)
+# Robot Movements
+x = np.array([1, 2, 2, 5, 6, 6.7])
+y = np.array([2, 3, 4, 6.7, 10, 14])
 # transforming the data to include another axis
 x = x[:, np.newaxis]
 y = y[:, np.newaxis]
-degree = input("Degree << ")
+degree = 4
 polynomial_features = PolynomialFeatures(degree=int(degree))
 x_poly = polynomial_features.fit_transform(x)
 
