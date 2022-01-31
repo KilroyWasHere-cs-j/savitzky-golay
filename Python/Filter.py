@@ -1,7 +1,7 @@
 import numpy as np
-from matplotlib.widgets import Slider
 from scipy.signal import savgol_filter
 import matplotlib.pyplot as plt
+import MadDog
 
 
 def generate():
@@ -14,8 +14,8 @@ def generate():
 
 
 # Generating the noisy signal
-x = np.concatenate((np.array([0]), generate()))  # np.linspace(0, 2*np.pi, 100)
-y = np.concatenate((np.array([0]), generate()))  # np.sin(x) + np.cos(x) + np.random.random(100)
+x = np.concatenate((np.array([0]), MadDog.find_outliers(generate())))  # np.linspace(0, 2*np.pi, 100)
+y = np.concatenate((np.array([0]), MadDog.find_outliers(generate())))  # np.sin(x) + np.cos(x) + np.random.random(100)
 print(len(y))
 # Savitzky-Golay filter
 y_filtered = savgol_filter(y, len(y) - 1, 10)
