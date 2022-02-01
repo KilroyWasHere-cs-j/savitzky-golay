@@ -12,6 +12,7 @@ def average(data):
 
 def find_outliers(data):
     data = np.array(data)
+    print("Mad Dog Data: ", data)
     av = int(average(data)*2)
     pos = 0
     for i in data:
